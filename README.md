@@ -3,7 +3,7 @@
 ## About the sample
 This example illustrates how to select the items in WinUI TreeView (SfTreeView)?
 
-[WinUI TreeView](https://www.syncfusion.com/winui-controls/treeview) (SfTreeView) allows selecting the items either programmatically or touch interactions by setting the [SelectionMode](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionMode) property value to other than None. The control has different selection modes to perform selection operations as listed as follows.
+[WinUI TreeView](https://www.syncfusion.com/winui-controls/treeview) (SfTreeView) allows selecting the items either programmatically or mouse click/touch interactions by setting the [SelectionMode](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionMode) property value to other than None. The control has different selection modes to perform selection operations as listed as follows.
 
 **None:** Allows disabling the selection.
 
@@ -49,10 +49,6 @@ The following code sample explains the single item selection in TreeView.
 
 ![Shows the single selection in SfTreeView ](TreeViewSingleSelection.gif)
 
-The following screenshot displays the single selection of item in TreeView,
-
-![Shows the single selection applied in SfTreeView ](SingleSelection.png)
-
 ## Multiple Items Selection
 
 TreeView allows to select multiple items by setting the [SfTreeView.SelectionMode](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionMode) as [Multiple](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_Multiple) or [Extended](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_Extended).
@@ -88,12 +84,8 @@ TreeView allows to select multiple items by setting the [SfTreeView.SelectionMod
  ```
   
  ![Shows the multiple selection in SfTreeView](TreeViewMultipleSelection.gif)
- 
- The following screenshot displays the multiple selection of items in TreeView,
- 
-  ![Shows the multiple selection applied in SfTreeView](MultipleSelection.png)
-  
- ## Programmatic Selection
+   
+## Programmatic Selection
   
 When the SelectionMode is other than [None](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_None), the item or items in the TreeView can be selected from the code by setting the [SelectedItem](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectedItem) or adding items to the [SelectedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectedItems) property based on the SelectionMode.
 
@@ -157,6 +149,26 @@ private void OnSelectionChanged(object sender, Syncfusion.UI.Xaml.TreeView.ItemS
 ```  
   
 #### Note: SelectionChanging and SelectionChanged events will be triggered only on UI interactions.
+
+## Disable the selection for specific item
+
+TreeView selection for specific items can be disabled by setting the ItemSelectionChangingEventArgs.Cancel property to true in the SelectionChanging event.
+
+```C#
+
+treeView.SelectionChanging += OnSelectionChanging;
+
+private void OnSelectionChanging(object sender, Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs e)
+{
+    if(e.AddedItems.Count > 0)
+    {
+         //disable the selection for specific items by setting the ItemSelectionChangingEventArgs.Cancel property to true.
+         if ((e.AddedItems[0] as Model).Header == "Overall Project Plan.docx" || (e.AddedItems[0] as Model).Header == "Server")
+              e.Cancel = true;
+    }
+}
+
+```  
  
 Take a moment to peruse the [WinUI TreeView - Selection](https://help.syncfusion.com/winui/treeview/selection) documentation, where you can find about selection with code examples.
 
