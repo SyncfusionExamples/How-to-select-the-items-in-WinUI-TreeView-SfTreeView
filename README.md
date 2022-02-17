@@ -3,17 +3,17 @@
 ## About the sample
 This example illustrates how to select the items in WinUI TreeView (SfTreeView)?
 
-[WinUI TreeView](https://www.syncfusion.com/winui-controls/treeview) (SfTreeView) allows selecting the items either programmatically or mouse click/touch interactions by setting the [SelectionMode](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionMode) property value to other than None. The control has different selection modes to perform selection operations as listed as follows.
+[WinUI TreeView](https://www.syncfusion.com/winui-controls/treeview) (SfTreeView) allows selecting the items either programmatically or mouse click/touch interactions by setting the [SelectionMode](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionMode) property value to something other than None. The control has different selection modes to perform selection operations listed as follows.
 
 **None:** Allows disabling the selection.
 
-**Single:** Allows selecting the single item only. When clicking on the selected item, selection will not be cleared. This is the default value for SelectionMode.
+**Single:** Allows selecting a single item only. When clicking on the selected item, the selection is not cleared. This is the default value for SelectionMode.
 
-**SingleDeselect:** Allows selecting the single item only. When clicking on the selected item, selection gets cleared.
+**SingleDeselect:** Allows selecting a single item only. When clicking on the selected item, the selection gets cleared.
 
-**Multiple:** Allows selecting more than one item. Selection is not cleared when selecting more than one items. When clicking on the selected item, selection gets cleared.
+**Multiple:** Allows selecting more than one item. Selection is not cleared, when selecting multiple items. When clicking on the selected item, the selection gets cleared.
 
-**Extended:** Allows to select the multiple items using the common key modifiers.
+**Extended:** Allows selecting the multiple items using the common key modifiers.
 
 The following code sample explains the single item selection in TreeView.
 
@@ -89,7 +89,7 @@ TreeView allows to select multiple items by setting the [SfTreeView.SelectionMod
   
 When the SelectionMode is other than [None](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_None), the item or items in the TreeView can be selected from the code by setting the [SelectedItem](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectedItem) or adding items to the [SelectedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectedItems) property based on the SelectionMode.
 
-When the selection mode is [Single](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_Single) or [SingleDeselect](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_SingleDeselect), programmatically select an item by setting the underlying object to the SelectedItem property.
+When the selection mode is [Single](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_Single) or [SingleDeselect](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SelectionMode.html#Syncfusion_UI_Xaml_TreeView_SelectionMode_SingleDeselect), programmatically select an item by setting the underlying object to the `SelectedItem` property.
 
 ```C#
 
@@ -97,7 +97,7 @@ treeView.SelectedItem = viewModel.Items[0];
 
 ```
 
-When the selection mode is Multiple, programmatically select more than one item by adding the underlying object to the SelectedItems property.
+When the selection mode is Multiple, programmatically select more than one item by adding the underlying object to the `SelectedItems` property.
 
 ```C#
 
@@ -106,17 +106,17 @@ treeView.SelectedItems.Add(viewModel.Items[3]);
 
 ```
 
-#### Note: If an item is selected programmatically when SelectionMode is None and if multiple items are programmatically selected when SelectionMode is Single or SingleDeselect, then exception will be thrown internally.
+#### Note: If an item is selected programmatically when SelectionMode is None and if multiple items are programmatically selected when SelectionMode is Single or SingleDeselect, then an exception will be thrown internally.
 
 ## Events
 
 ### SelectionChanging Event
 
-The [SelectionChanging](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionChanging) event is raised while selecting an item at the execution time. The [ItemSelectionChangingEventArgs](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs.html) has the following members which provides the information for SelectionChanging event:
+The [SelectionChanging](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionChanging) event will be triggered while selecting an item at the execution time. The [ItemSelectionChangingEventArgs](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs.html) has the following members, which provide the information for the SelectionChanging event:
 
-[AddedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangingEventArgs_AddedItems): Gets collection of the underlying data objects where the selection is going to process.
+* [AddedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangingEventArgs_AddedItems): Gets a collection of the underlying data objects where the selection is going to process.
 
-[RemovedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangingEventArgs_RemovedItems): Gets collection of the underlying data objects where the selection is going to remove.
+* [RemovedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangingEventArgs_RemovedItems): Gets a collection of the underlying data objects where the selection is going to remove.
 
 ```C#
 
@@ -131,11 +131,11 @@ private void OnSelectionChanging(object sender, Syncfusion.UI.Xaml.TreeView.Item
 
 ### SelectionChanged event
 
-The [SelectionChanged](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionChanged) event will occur once selection process has been completed for the selected item in the TreeView. The [ItemSelectionChangedEventArgs](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs.html) has the following members which provides information for SelectionChanged event:
+The [SelectionChanged](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.SfTreeView.html#Syncfusion_UI_Xaml_TreeView_SfTreeView_SelectionChanged) event will occur, once the selection process has been completed for the selected item in the TreeView. The [ItemSelectionChangedEventArgs](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs.html) has the following members, which provide information for the SelectionChanged event:
 
-[AddedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangedEventArgs_AddedItems): Gets collection of the underlying data objects where the selection has been processed.
+  * [AddedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangedEventArgs_AddedItems): Gets a collection of the underlying data objects where the selection has been processed.
 
-[RemovedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangedEventArgs_RemovedItems): Gets collection of the underlying data objects where the selection has been removed.
+  * [RemovedItems](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs.html#Syncfusion_UI_Xaml_TreeView_ItemSelectionChangedEventArgs_RemovedItems): Gets a collection of the underlying data objects where the selection has been removed.
 
 ```C#
 
@@ -150,9 +150,9 @@ private void OnSelectionChanged(object sender, Syncfusion.UI.Xaml.TreeView.ItemS
   
 #### Note: SelectionChanging and SelectionChanged events will be triggered only on UI interactions.
 
-## Disable the selection for specific item
+## Disable the selection for a specific item
 
-TreeView selection for specific items can be disabled by setting the ItemSelectionChangingEventArgs.Cancel property to true in the SelectionChanging event.
+TreeView selection for specific items can be disabled by setting the **ItemSelectionChangingEventArgs.Cancel** property to true in the SelectionChanging event.
 
 ```C#
 
