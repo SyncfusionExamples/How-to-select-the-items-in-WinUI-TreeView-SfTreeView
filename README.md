@@ -19,34 +19,32 @@ The following code sample explains the single item selection in TreeView.
 
 ```XML
 
-<treeView:SfTreeView   x:Name="treeView"
-                       Width="400"
-                       Height="500"
-                       AutoExpandMode="AllNodes"
-                       ChildPropertyName="Childs"
-                       IsAnimationEnabled="True"
-                       SelectionMode="Single"
-                       FullRowSelect="True"
-                       ItemsSource="{Binding Nodes1}">
-            <treeView:SfTreeView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <ContentPresenter Width="20"
-                                          Height="20"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Center"
-                                          ContentTemplate="{Binding ImageTemplate}" />
-                        <TextBlock
-                                            Margin="5"
-                                            VerticalAlignment="Center"
-                                            Text="{Binding Header}" />
-                    </StackPanel>
-                </DataTemplate>
-            </treeView:SfTreeView.ItemTemplate>
+<treeView:SfTreeView x:Name="treeView"
+                     Width="400"
+                     Height="500"
+                     AutoExpandMode="AllNodes"
+                     ChildPropertyName="Childs"
+                     IsAnimationEnabled="True"
+                     SelectionMode="Single"
+                     FullRowSelect="True"
+                     ItemsSource="{Binding Nodes1}">
+    <treeView:SfTreeView.ItemTemplate>
+        <DataTemplate>
+            <StackPanel Orientation="Horizontal">
+                <ContentPresenter Width="20"
+                                  Height="20"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  ContentTemplate="{Binding ImageTemplate}" />
+                <TextBlock Margin="5"
+                           VerticalAlignment="Center"
+                           Text="{Binding Header}" />
+            </StackPanel>
+        </DataTemplate>
+    </treeView:SfTreeView.ItemTemplate>
 </treeView:SfTreeView>
 
 ```
-
 ![Shows the single selection in SfTreeView ](TreeViewSingleSelection.gif)
 
 ## Multiple Items Selection
@@ -64,25 +62,23 @@ TreeView allows to select multiple items by setting the [SfTreeView.SelectionMod
                      SelectionMode="Multiple"
                      FullRowSelect="True"
                      ItemsSource="{Binding Nodes1}">
-            <treeView:SfTreeView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <ContentPresenter Width="20"
-                                          Height="20"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Center"
-                                          ContentTemplate="{Binding ImageTemplate}" />
-                        <TextBlock
-                                            Margin="5"
-                                            VerticalAlignment="Center"
-                                            Text="{Binding Header}" />
-                    </StackPanel>
-                </DataTemplate>
-            </treeView:SfTreeView.ItemTemplate>
-</treeView:SfTreeView>
-
+    <treeView:SfTreeView.ItemTemplate>
+        <DataTemplate>
+            <StackPanel Orientation="Horizontal">
+                <ContentPresenter Width="20"
+                                  Height="20"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  ContentTemplate="{Binding ImageTemplate}" />
+                <TextBlock Margin="5"
+                           VerticalAlignment="Center"
+                           Text="{Binding Header}" />
+            </StackPanel>
+         </DataTemplate>
+     </treeView:SfTreeView.ItemTemplate>
+ </treeView:SfTreeView>
  ```
-  
+
  ![Shows the multiple selection in SfTreeView](TreeViewMultipleSelection.gif)
    
 ## Programmatic Selection
@@ -121,10 +117,9 @@ The [SelectionChanging](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.
 ```C#
 
 treeView.SelectionChanging += OnSelectionChanging;
-
-private void OnSelectionChanging(object sender, Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs e)
+ 
+private void OnSelectionChanging(object sender, ItemSelectionChangingEventArgs e)
 {
-
 }
 
 ```    
@@ -140,10 +135,9 @@ The [SelectionChanged](https://help.syncfusion.com/cr/winui/Syncfusion.UI.Xaml.T
 ```C#
 
 treeView.SelectionChanged += OnSelectionChanged;
-
-private void OnSelectionChanged(object sender, Syncfusion.UI.Xaml.TreeView.ItemSelectionChangedEventArgs e)
+ 
+private void OnSelectionChanged(object sender, ItemSelectionChangedEventArgs e)
 {
-
 }
 
 ```  
@@ -157,22 +151,16 @@ TreeView selection for specific items can be disabled by setting the **ItemSelec
 ```C#
 
 treeView.SelectionChanging += OnSelectionChanging;
-
-private void OnSelectionChanging(object sender, Syncfusion.UI.Xaml.TreeView.ItemSelectionChangingEventArgs e)
+ 
+private void OnSelectionChanging(object sender, ItemSelectionChangingEventArgs e)
 {
     if(e.AddedItems.Count > 0)
     {
-         //disable the selection for specific items by setting the ItemSelectionChangingEventArgs.Cancel property to true.
-         if ((e.AddedItems[0] as Model).Header == "Overall Project Plan.docx" || (e.AddedItems[0] as Model).Header == "Server")
-              e.Cancel = true;
+       //disable the selection for specific items by setting the ItemSelectionChangingEventArgs.Cancel property to true.
+       if ((e.AddedItems[0] as Model).Header == "Overall Project Plan.docx" || (e.AddedItems[0] as Model).Header == "Server")
+         e.Cancel = true;
     }
 }
 
 ```  
- 
 Take a moment to peruse the [WinUI TreeView - Selection](https://help.syncfusion.com/winui/treeview/selection) documentation, where you can find about selection with code examples.
-
-## Requirements to run the demo 
-
-Visual Studio 2019 and above versions.
-
